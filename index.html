@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>chromeDebug</title>
+</head>
+<script src="js/main.js"></script>
+<form>
+    <input type="text" value="1" id="num1">
+    <input type="text" value="2" id="num2">
+    <select id="calcType" onchange="(
+    function(){
+    document.getElementById('result').innerHTML = '結果 : '
+    + calculate(
+    document.getElementById('num1').value,
+    document.getElementById('num2').value,
+    document.getElementById('calcType').selectedIndex
+    )})()">
+        <option>足し算</option>
+        <option>引き算</option>
+        <option>掛け算</option>
+        <option>割り算</option>
+    </select>
+</form>
+<div id="result" />
+</body>
+</html>
