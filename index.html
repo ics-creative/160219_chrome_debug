@@ -11,11 +11,13 @@
     <select id="calcType" onchange="(
     function(){
     document.getElementById('result').innerHTML = '結果 : '
-    + calculate(
-    document.getElementById('num1').value,
-    document.getElementById('num2').value,
-    document.getElementById('calcType').selectedIndex
-    )})()">
+      + calculate(
+        document.getElementById('num1').value,
+        document.getElementById('num2').value,
+        document.getElementById('calcType').selectedIndex
+      )
+    }
+    )()">
         <option>足し算</option>
         <option>引き算</option>
         <option>掛け算</option>
