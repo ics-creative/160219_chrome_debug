@@ -8,7 +8,6 @@ const elementResult = document.querySelector("#result");
 elementSelect.addEventListener("change", update);
 elementNum1.addEventListener("change", update);
 elementNum2.addEventListener("change", update);
-update();
 
 /** 計算し画面に結果を表示します。 */
 function update() {
