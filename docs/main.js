@@ -5,39 +5,40 @@ const elementNum2 = document.querySelector("#num2");
 const elementResult = document.querySelector("#result");
 
 // イベントを登録
-elementSelect.addEventListener("change", calc);
-elementNum1.addEventListener("change", calc);
-elementNum2.addEventListener("change", calc);
-calc();
+elementSelect.addEventListener("change", update);
+elementNum1.addEventListener("change", update);
+elementNum2.addEventListener("change", update);
+update();
 
 /** 計算し画面に結果を表示します。 */
-function calc() {
-  elementResult.innerHTML =
-    calculate(
-      Number(elementNum1.value),
-      Number(elementNum2.value),
-      elementSelect.value
-    )
+function update() {
+  // 計算結果を求める
+  const result = calculate(
+    Number(elementNum1.value), // 1番目のテキスト入力フォームの値
+    Number(elementNum2.value), // 2番目のテキスト入力フォームの値
+    elementSelect.value // セレクトボックスの値（計算の種類）
+  );
+
+  // 画面に表示
+  elementResult.innerHTML = result; // テキストを代入
 }
 
 /** 計算します。 */
 function calculate(num1, num2, calcType) {
   let result;
+  // 計算の種類で処理を分岐
   switch (calcType) {
-    case "type-add":
+    case "type-add": // 足し算の場合
       result = add(num1, num2);
       break;
-    case "type-substract":
+    case "type-substract": // 引き算の場合
       result = substract(num1, num2);
       break;
-    case "type-multiply":
+    case "type-multiply": // 掛け算の場合
       result = multiply(num1, num2);
       break;
-    case "type-divide":
+    case "type-divide": // 割り算の場合
       result = divide(num1, num2);
-      break;
-    default:
-      throw new Error();
       break;
   }
   return result;
