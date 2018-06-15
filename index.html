@@ -1,29 +1,58 @@
 <!DOCTYPE html>
-<html lang="jp">
+<html lang="jp" dir="ltr">
+
 <head>
-    <meta charset="UTF-8">
-    <title>chromeDebug</title>
-</head>
-<script src="js/main.js"></script>
-<form>
-    <input type="text" value="1" id="num1">
-    <input type="text" value="2" id="num2">
-    <select id="calcType" onchange="(
-    function(){
-    document.getElementById('result').innerHTML = '結果 : '
-      + calculate(
-        document.getElementById('num1').value,
-        document.getElementById('num2').value,
-        document.getElementById('calcType').selectedIndex
-      )
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Chrome Debug Sample</title>
+  <script defer src="js/main.js"></script>
+  <style>
+    html,
+    body {
+      height: 100%;
     }
-    )()">
-        <option>足し算</option>
-        <option>引き算</option>
-        <option>掛け算</option>
-        <option>割り算</option>
-    </select>
-</form>
-<div id="result" />
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #EEEEEE;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    form {
+      zoom: 2;
+      text-align: center;
+    }
+
+    input[type=number] {
+      width: 30px;
+    }
+
+    #result {
+      width: 30px;
+      display: inline-block
+    }
+  </style>
+</head>
+
+<body>
+  <form>
+    <div>
+      <input type="number" value="1" id="num1">
+      <select id="calcType">
+        <option value="type-add">+</option>
+        <option value="type-substract">-</option>
+        <option value="type-multiply">×</option>
+        <option value="type-divide">÷</option>
+      </select>
+      <input type="number" value="2" id="num2"> =
+      <span id="result"></span>
+    </div>
+
+  </form>
 </body>
+
+
 </html>
